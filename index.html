@@ -10,8 +10,12 @@
   </style>
 </head>
 <body>
-  <!-- แก้ src ให้เป็น exec URL ของ deployment ล่าสุด -->
-  <iframe src="https://script.google.com/macros/s/AKfycbxiJw2tOHLp7tZ4-Fkok0WLVYlQXXb8_qHft0q3uIYG4KAl6BN4Nzax6PXOLlMOQzlzHg/exec"
-          allowfullscreen></iframe>
+  <iframe id="app" allowfullscreen></iframe>
+  <script>
+    // แก้บรรทัดนี้ทุกครั้งที่ deployment URL เปลี่ยน
+    var BASE = "https://script.google.com/macros/s/AKfycbxiJw2tOHLp7tZ4-Fkok0WLVYlQXXb8_qHft0q3uIYG4KAl6BN4Nzax6PXOLlMOQzlzHg/exec";
+    // ส่ง query string จากลิงก์ที่เปิดหน้านี้ (เช่น ?page=admin หรือ ?page=admin&sport=แบดมินตัน) ต่อไปยัง exec URL อัตโนมัติ
+    document.getElementById('app').src = BASE + window.location.search;
+  </script>
 </body>
 </html>
